@@ -1,0 +1,29 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: "build-template"
+  annotations:
+    description: "Build template for the sample-cognito service"
+    tags: "build"
+objects:
+  - apiVersion: v1
+    kind: ImageStream
+    metadata:
+      name: "sample-cognito-imagestream"
+      labels:
+        name: "sample-cognito"
+  - apiVersion: v1
+    kind: BuildConfig
+    metadata:
+      name: "sample-cognito-buildconfig"
+      labels:
+        name: "sample-cognito"
+    spec:
+      source:
+        type: Binary
+      strategy:
+        type: Docker
+      output:
+        to:
+          kind: ImageStreamTag
+          name: "sample-cognito-imagestream:1.0-SNAPSHOT"

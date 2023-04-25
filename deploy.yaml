@@ -1,0 +1,29 @@
+apiVersion: apps.openliberty.io/v1beta2
+kind: OpenLibertyApplication
+metadata:
+  name: sample-cognito
+  labels:
+    name: sample-cognito
+spec:
+  applicationImage: guide/sample-cognito-imagestream:1.0-SNAPSHOT
+  sso:
+    oidc:
+      - discoveryEndpoint: CHANGE_IT
+        userNameAttribute: cognito:username
+  service:
+    certificate:
+      isCA: true
+      issuerRef:
+        kind: ClusterIssuer
+        name: self-signed
+    port: 9443
+    type: ClusterIP
+  expose: true
+  route:
+    certificate:
+      isCA: true
+      issuerRef:
+        kind: ClusterIssuer
+        name: self-signed
+    termination: passthrough
+    insecureEdgeTerminationPolicy: None
