@@ -10,6 +10,7 @@ spec:
     oidc:
       - discoveryEndpoint: CHANGE_IT
         userNameAttribute: cognito:username
+        groupNameAttribute: cognito:groups
   service:
     certificate:
       isCA: true

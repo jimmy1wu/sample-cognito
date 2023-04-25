@@ -11,12 +11,6 @@
     <httpEndpoint host="*" httpPort="${default.http.port}"
         httpsPort="${default.https.port}" id="defaultHttpEndpoint" />
 
-    <webApplication location="sample-cognito.war" contextRoot="/">
-        <application-bnd>
-            <security-role name="user">
-                <special-subject type="ALL_AUTHENTICATED_USERS"/>
-            </security-role>
-        </application-bnd>
-    </webApplication>
+    <webApplication location="sample-cognito.war" contextRoot="/" />
 
 </server>
