@@ -5,7 +5,7 @@ metadata:
   labels:
     name: sample-cognito
 spec:
-  applicationImage: guide/sample-cognito-imagestream:1.0-SNAPSHOT
+  applicationImage: sample-cognito/sample-cognito-imagestream:1.0-SNAPSHOT
   sso:
     oidc:
       - discoveryEndpoint: CHANGE_IT
